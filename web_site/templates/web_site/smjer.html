@@ -1,0 +1,12 @@
+{% extends 'web_site/base.html'%}
+
+{% block content %}
+<h3>{{ smjer }} smjer</h3>
+<p>Predmeti:</p>
+{% if predmeti %}
+    {% for predmet in predmeti %}
+        {{predmet.ime_predmeta}}  ECTS: {{predmet.ects}}
+        <br>
+    {% endfor %}
+{% endif %}
+{% endblock %}

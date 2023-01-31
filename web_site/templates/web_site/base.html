@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Fakultet</title>
+        {% else %}
+        <title>Fakultet!</title>
+        {% endif %}
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        <a href="{% url 'web_site:index' %}">Home</a>
+        <a href="{% url 'web_site:logout_request' %}">Logout</a>
+        {% endif %}
+        <h2>
+            Fakultet!
+        </h2>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

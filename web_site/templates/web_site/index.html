@@ -1,0 +1,17 @@
+{% extends 'web_site/base.html'%}
+
+{% block content %}
+<h2>Smjerovi:</h2>
+{% if smjerovi %}
+    {% for smjer in smjerovi %}
+        <h4>{{ smjer.naziv }}</h4>
+        Kvota: {{ smjer.kvota }}
+        <a href="{% url 'web_site:smjer' smjer.slug %}">Nastavni plan</a>
+    {% endfor %}
+{% endif %}
+<br>
+{% if not accepted %}
+<a href="{% url 'web_site:apply_request' %}">Apply</a>
+{% endif %}
+
+{% endblock %}
